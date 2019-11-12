@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.stratio</groupId>
+  <artifactId>canary-testing-ms</artifactId>
+  <version>0.1-SNAPSHOT</version>
+
+  <!-- Inherit defaults from stratio microservices parent -->
+  <parent>
+    <groupId>com.stratio.architecture</groupId>
+    <artifactId>stratio-microservices-parent</artifactId>
+    <version>1.1.0</version>
+  </parent>
+
+
+  <properties>
+    <java.version>11</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <!-- LOMBOK -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <optional>true</optional>
+    </dependency>
+
+    <!-- SPRING -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- KAFKA -->
+    <dependency>
+      <groupId>com.stratio.architecture</groupId>
+      <artifactId>stratio-kafka-starter</artifactId>
+      <version>${project.parent.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- POSTGRESQL -->
+    <dependency>
+      <groupId>com.stratio.architecture</groupId>
+      <artifactId>stratio-postgresql-starter</artifactId>
+      <version>${project.parent.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- H2
+    <dependency>
+      <groupId>com.hsqldb</groupId>
+      <artifactId>hsqldb</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    -->
+  </dependencies>
+
+</project>

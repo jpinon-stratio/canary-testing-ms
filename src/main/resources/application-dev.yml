@@ -1,0 +1,19 @@
+data:
+  jpa.repositories.enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+      use-new-id-generator-mappings: false
+    show-sql: false
+    properties:
+      default_schema: obproducer
+      javax:
+        persistence:
+          validation:
+            mode: none
+  flyway:
+    enabled: false
+    locations: classpath:/db/migration
+  datasource:
+    driverClassName: org.postgresql.Driver
+    continueOnError: true
