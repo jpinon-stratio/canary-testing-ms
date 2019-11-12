@@ -1,5 +1,8 @@
 package com.stratio.canary_testing_ms.adapter.controller.kafka;
 
+import java.io.IOException;
+import java.util.Map;
+
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Controller;
 
@@ -19,11 +22,18 @@ public class KafkaController {
     this.objectMapper = objectMapper;
   }
 
-  @KafkaListener(topics = "${message.topic.name:uc_rt_view}", groupId = "${message.group.name:barclaysventure}")
+  @KafkaListener(topics = "${message.topic.name:ms_input}", groupId = "${message.group.name:barclaysventures}")
   public void kafkaListener(String message){
-    ModelInput modelInput = objectMapper.convertValue(message, DefaultModelInput.class);
+    Map<String,Object> inputMap = null;
 
-    modelRunnerProvider.run(modelInput);
+    try {
+      inputMap = objectMapper.readValue(message, Map.class);
+
+    }catch (IOException e){
+
+    }
+
+    modelRunnerProvider.run(new DefaultModelInput((Integer)inputMap.get("number_transactions"), (Double)inputMap.get("mean_transactions")));
   }
 
 }
