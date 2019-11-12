@@ -20,6 +20,9 @@
     <java.version>11</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
+    <jaxb-api.version>2.3.1</jaxb-api.version>
+    <jaxb-impl.version>2.3.2</jaxb-impl.version>
+    <javassist.version>3.23.1-GA</javassist.version>
   </properties>
 
   <dependencies>
@@ -61,13 +64,27 @@
       <type>pom</type>
     </dependency>
 
-    <!-- H2
     <dependency>
-      <groupId>com.hsqldb</groupId>
-      <artifactId>hsqldb</artifactId>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
       <scope>runtime</scope>
     </dependency>
-    -->
+
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+      <version>${jaxb-api.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-impl</artifactId>
+      <version>${jaxb-impl.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.javassist</groupId>
+      <artifactId>javassist</artifactId>
+      <version>${javassist.version}</version>
+    </dependency>
   </dependencies>
 
 </project>
