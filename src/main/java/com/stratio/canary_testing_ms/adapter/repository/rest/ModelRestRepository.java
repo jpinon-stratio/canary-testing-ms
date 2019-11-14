@@ -43,9 +43,13 @@ public class ModelRestRepository implements ModelRepository {
 
     ResponseEntity<Map> response = restTemplate.exchange(repositoryUrl, HttpMethod.POST, request, Map.class);
 
+    log.info("Response body: {}", response.getBody().toString());
+
     Map output = response.getBody();
 
     output.put("modelId", response.getHeaders().get("x-canary-tracker"));
+
+    log.info("Output: {}", output.toString());
 
     return output ;
   }

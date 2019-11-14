@@ -35,7 +35,7 @@ public class ModelMapperTest {
 
   @Test
   public void whenOutputIsValid_thenModelOutputIsCreated(){
-    String json = "{\"schema\":{\"fields\":[{\"name\":\"nTransactions\",\"type\":\"integer\"},{\"name\":\"meanAmount\",\"type\":\"double\"},{\"name\":\"features_ns\",\"type\":{\"type\":\"tensor\",\"base\":\"double\",\"dimensions\":[2]}},{\"name\":\"features\",\"type\":{\"type\":\"tensor\",\"base\":\"double\",\"dimensions\":[2]}},{\"name\":\"prediction\",\"type\":{\"type\":\"basic\",\"base\":\"integer\",\"isNullable\":false}}]},\"rows\":[[18,585.5555555555555,{\"values\":[18.0,585.5555555555555],\"dimensions\":[2]},{\"values\":[0.35714285714285715,0.7810703123136019],\"dimensions\":[2]},1]]}";
+    String json = "{\"schema\":{\"fields\":[{\"name\":\"nTransactions\",\"type\":\"integer\"},{\"name\":\"meanAmount\",\"type\":\"double\"},{\"name\":\"features_ns\",\"type\":{\"type\":\"tensor\",\"base\":\"double\",\"dimensions\":[2]}},{\"name\":\"features\",\"type\":{\"type\":\"tensor\",\"base\":\"double\",\"dimensions\":[2]}},{\"name\":\"prediction\",\"type\":{\"type\":\"basic\",\"base\":\"integer\",\"isNullable\":false}}]},\"rows\":[[18,585.5555555555555,{\"values\":[18.0,585.5555555555555],\"dimensions\":[2]},{\"values\":[0.35714285714285715,0.7810703123136019],\"dimensions\":[2]},1]], \"modelId:\": \"hostname_example\"}";
     Map<String,Object> map = null;
     try {
       map = new ObjectMapper().readValue(json, Map.class);

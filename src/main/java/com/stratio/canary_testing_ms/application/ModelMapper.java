@@ -21,7 +21,7 @@ public class ModelMapper {
 
   public static ModelOutput toModelOutput(Map map){
 
-    String modelId = (mapper.convertValue(map.get("modelId"), String.class));
+    String modelId = (String) map.get("modelId");
 
     List list = (List)(mapper.convertValue(map.get("rows"), List.class)).get(0);
 
