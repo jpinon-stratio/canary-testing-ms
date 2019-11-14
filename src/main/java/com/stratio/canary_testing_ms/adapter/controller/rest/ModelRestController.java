@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.stratio.canary_testing_ms.domain.DefaultModelInput;
-import com.stratio.canary_testing_ms.port.ModelInput;
 import com.stratio.canary_testing_ms.port.ModelRunnerProvider;
 
 @RestController

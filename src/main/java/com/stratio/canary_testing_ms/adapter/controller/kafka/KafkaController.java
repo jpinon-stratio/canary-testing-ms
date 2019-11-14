@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stratio.canary_testing_ms.domain.DefaultModelInput;
-import com.stratio.canary_testing_ms.port.ModelInput;
 import com.stratio.canary_testing_ms.port.ModelRunnerProvider;
 
 @Controller
