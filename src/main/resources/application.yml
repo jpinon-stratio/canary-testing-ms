@@ -22,3 +22,11 @@ data:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
+management:
+  server:
+    port: 8091
+  endpoints:
+    web:
+      base-path: /
+server:
+  port: 8080

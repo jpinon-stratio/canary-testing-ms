@@ -12,7 +12,10 @@ import com.stratio.canary_testing_ms.port.DatabaseRepository;
 import com.stratio.canary_testing_ms.port.ModelInput;
 import com.stratio.canary_testing_ms.port.ModelOutput;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Repository
+@Slf4j
 public class PostgresRepository implements DatabaseRepository {
 
   private final JpaExecutionRepository jpaExecutionRepository;
@@ -32,12 +35,10 @@ public class PostgresRepository implements DatabaseRepository {
     OutputEntity outputEntity = new OutputEntity(modelOutput);
     ExecutionEntity executionEntity = new ExecutionEntity(modelOutput.getModelId(), inputEntity, outputEntity);
 
-
-
-    //executionEntity.getInputEntity().setExecutionEntity(executionEntity);
-    //executionEntity.getOutputEntity().setExecutionEntity(executionEntity);
     jpaInputRepository.save(inputEntity);
     jpaOutputRepository.save(outputEntity);
     jpaExecutionRepository.save(executionEntity);
+
+    log.info("Entities stored in database");
   }
 }

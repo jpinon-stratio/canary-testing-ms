@@ -14,8 +14,11 @@ import org.springframework.web.client.RestTemplate;
 
 import com.stratio.canary_testing_ms.port.ModelRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 //TODO: to be tested
 @Repository
+@Slf4j
 public class ModelRestRepository implements ModelRepository {
 
   private final RestTemplate restTemplate;
@@ -34,6 +37,9 @@ public class ModelRestRepository implements ModelRepository {
     headers.setContentType(MediaType.APPLICATION_JSON);
 
     HttpEntity request = new HttpEntity(input, headers);
+
+    log.info("Sending request to intelligence model with url: {}, headers: {}", repositoryUrl, request.getHeaders().toString());
+    log.info("Body -> {}", input.toString());
 
     ResponseEntity<Map> response = restTemplate.exchange(repositoryUrl, HttpMethod.POST, request, Map.class);
 
