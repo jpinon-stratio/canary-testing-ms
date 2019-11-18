@@ -47,7 +47,7 @@ public class ModelRestRepository implements ModelRepository {
 
     Map output = response.getBody();
 
-    output.put("modelId", response.getHeaders().get("x-canary-tracker"));
+    output.put("modelId", response.getHeaders().get("x-canary-tracker").stream().findFirst().orElseThrow(RuntimeException::new));
 
     log.info("Output: {}", output.toString());
 

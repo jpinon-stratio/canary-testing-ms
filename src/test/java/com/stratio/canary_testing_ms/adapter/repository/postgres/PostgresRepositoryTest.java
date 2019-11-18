@@ -8,11 +8,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.stratio.canary_testing_ms.adapter.repository.postgres.entity.ExecutionEntity;
-import com.stratio.canary_testing_ms.adapter.repository.postgres.entity.InputEntity;
-import com.stratio.canary_testing_ms.adapter.repository.postgres.entity.OutputEntity;
 import com.stratio.canary_testing_ms.adapter.repository.postgres.jpa.JpaExecutionRepository;
-import com.stratio.canary_testing_ms.adapter.repository.postgres.jpa.JpaInputRepository;
-import com.stratio.canary_testing_ms.adapter.repository.postgres.jpa.JpaOutputRepository;
 import com.stratio.canary_testing_ms.domain.DefaultModelInput;
 import com.stratio.canary_testing_ms.domain.DefaultModelOutput;
 import com.stratio.canary_testing_ms.port.DatabaseRepository;
@@ -22,17 +18,11 @@ import com.stratio.canary_testing_ms.port.ModelOutput;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("test")
-//@Sql(executionPhase= ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:schema-test.sql")
+//@Sql(executionPhase= ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:schema.sql")
 public class PostgresRepositoryTest {
 
   @Autowired
   DatabaseRepository databaseRepository;
-
-  @Autowired
-  JpaOutputRepository jpaOutputRepository;
-
-  @Autowired
-  JpaInputRepository jpaInputRepository;
 
   @Autowired
   JpaExecutionRepository jpaExecutionRepository;
@@ -46,8 +36,6 @@ public class PostgresRepositoryTest {
 
     databaseRepository.saveExecutionResults(modelInput, modelOutput);
 
-    InputEntity inputEntity = jpaInputRepository.findAll().stream().findFirst().get();
-    OutputEntity outputEntity = jpaOutputRepository.findAll().stream().findFirst().get();
     ExecutionEntity executionEntity = jpaExecutionRepository.findAll().stream().findFirst().get();
 
     int i = 0;
