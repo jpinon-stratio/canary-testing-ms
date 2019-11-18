@@ -3,6 +3,7 @@ package com.stratio.canary_testing_ms.application;
 import java.io.IOException;
 import java.util.Map;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,6 +19,7 @@ public class ModelMapperTest {
 
 
   @Test
+  @Ignore
   public void whenInputIsValid_thenModelInputIsCreated(){
     String json = "{\"schema\": {\"fields\": [{\"name\": \"nTransactions\", \"type\": \"integer\"},{\"name\": \"meanAmount\",\"type\": \"double\"}]},\"rows\": [[18, 585.5555555555555]]}";
     Map<String,Object> map = null;
@@ -34,6 +36,7 @@ public class ModelMapperTest {
   }
 
   @Test
+  @Ignore
   public void whenOutputIsValid_thenModelOutputIsCreated(){
     String json = "{\"schema\":{\"fields\":[{\"name\":\"nTransactions\",\"type\":\"integer\"},{\"name\":\"meanAmount\",\"type\":\"double\"},{\"name\":\"features_ns\",\"type\":{\"type\":\"tensor\",\"base\":\"double\",\"dimensions\":[2]}},{\"name\":\"features\",\"type\":{\"type\":\"tensor\",\"base\":\"double\",\"dimensions\":[2]}},{\"name\":\"prediction\",\"type\":{\"type\":\"basic\",\"base\":\"integer\",\"isNullable\":false}}]},\"rows\":[[18,585.5555555555555,{\"values\":[18.0,585.5555555555555],\"dimensions\":[2]},{\"values\":[0.35714285714285715,0.7810703123136019],\"dimensions\":[2]},1]], \"modelId:\": \"hostname_example\"}";
     Map<String,Object> map = null;

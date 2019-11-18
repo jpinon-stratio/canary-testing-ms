@@ -3,6 +3,7 @@ package com.stratio.canary_testing_ms.adapter.controller.kafka;
 import java.io.IOException;
 import java.util.Map;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import com.stratio.canary_testing_ms.port.ModelInput;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("test")
+@Ignore
 public class KafkaControllerTest {
 
   @Autowired

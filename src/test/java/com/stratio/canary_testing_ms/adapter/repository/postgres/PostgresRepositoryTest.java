@@ -1,5 +1,6 @@
 package com.stratio.canary_testing_ms.adapter.repository.postgres;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import com.stratio.canary_testing_ms.port.ModelOutput;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("test")
+@Ignore
 //@Sql(executionPhase= ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:schema.sql")
 public class PostgresRepositoryTest {
 
